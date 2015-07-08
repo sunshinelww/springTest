@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+         http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<!--注入List类型的属性-->
+	<bean id="boss1" class="com.baobaotao.attr.Boss">
+		<property name="favorites">
+			<list>
+				<value>看报</value>
+				<value>赛车</value>
+				<value>高尔夫</value>
+			</list>
+		</property>
+		
+		<!--注入map类型的属性-->
+		<property name="jobs">
+			<map>
+				<entry>
+					<key><value>AM</value></key>
+					<value><![CDATA[会见客户]]></value>
+				</entry>
+				<entry>
+					<key><value>PM</value></key>
+					<value>公司内部会议</value>
+				</entry>
+			</map>
+		</property>
+		
+		<!--注入properties类型属性-->
+		<property name="mails">
+			<props>
+				<prop key="jobMail">13517248639@163.com</prop>
+				<prop key="lifeMail">1548178885@qq.com</prop>
+			</props>
+		</property>
+		
+	</bean>
+</beans>

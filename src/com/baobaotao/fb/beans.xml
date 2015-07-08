@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	                    http://www.springframework.org/schema/beans/spring-beans-2.0.xsd 
+	                    http://www.springframework.org/schema/util 
+	                    http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+   <bean id="car" class="com.baobaotao.fb.CarFactoryBean">
+   	    <property name="carInfo" value="奥迪A6L,200,2000000"></property>
+   </bean>
+   
+   <bean id="favoriteList" class="org.springframework.beans.factory.config.ListFactoryBean">
+   	   <property name="targetListClass" value="java.util.LinkedList"></property>
+   	   <property name="singleton" value="false"></property>
+   	   <property name="sourceList">
+   	   	 <list>
+   	   	 	 <value>看报</value>
+   	   	 	 <value>赛车</value>
+   	   	 	 <value>高尔夫</value>
+   	   	 </list>
+   	   </property>
+   </bean>
+</beans>

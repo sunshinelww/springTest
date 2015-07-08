@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+     http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">   
+     <bean id="forumServiceTarget" class="com.baobaotao.introduce.ForumService"></bean>
+     <bean  id="pmonitor" class="com.baobaotao.introduce.ControllablePerformanceMonitor"></bean>
+     <bean id="forumService" class="org.springframework.aop.framework.ProxyFactoryBean">
+     	
+     	<!--引介增强所实现的接口-->
+     	<property name="interfaces">
+     		<value>com.baobaotao.introduce.Monitorable</value>
+     	</property>
+     	
+     	<property name="interceptorNames" value="pmonitor"></property>
+     	<property name="target" ref="forumServiceTarget"></property>
+     	
+        <!-- 由于引介增强一定要通过创建子类来生成代理，所以需要强制性使用CGLib,否则会报错-->
+     	<property name="proxyTargetClass" value="true"></property>
+     </bean>
+   
+</beans>
